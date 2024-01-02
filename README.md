@@ -52,6 +52,19 @@ As an example, in my case its:
 PREFIX_IOBROKER_STATE=http://{host}:{port}/getBulk/
 ```
 
+### Check your logfile
+Once you launch your abrpTelemetrySmartInjector docker, check its logfile to see that data is correctly fetched for your vehicle and sent to abrp
+```
+docker logs -f smart-hashtag-one-abrp-injector
+```
+
+you should see something similar to the following log output, you see the data being sent to abrp.
+``` 
+(1/2/2024, 1:20:09 PM) INFO: Start sending data...
+(1/2/2024, 1:20:09 PM) INFO: usr.abrp.status: ABRP::started
+(1/2/2024, 1:20:09 PM) INFO: Significant telemetry change
+(1/2/2024, 1:20:09 PM) INFO: Sending telemetry to ABRP {"utc":1704201609,"soc":75,"is_charging":false,"is_parked":true,"ext_temp":9,"est_battery_range":279}
+```
 
 ## Data acquired via REST from iobroker
 The following vehicle states will be fetched from iobroker
