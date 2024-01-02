@@ -66,7 +66,32 @@ you should see something similar to the following log output, you see the data b
 (1/2/2024, 1:20:09 PM) INFO: Sending telemetry to ABRP {"utc":1704201609,"soc":75,"is_charging":false,"is_parked":true,"ext_temp":9,"est_battery_range":279}
 ```
 
-## Data acquired via REST from iobroker
+### Check your abetterrouteplanner
+Once telemetry data has been sent to abrp, you  should see it in your app.
+
+<img width="339" alt="image" src="https://github.com/christophmoar/abrpTelemetrySmartInjector/assets/62471240/4de9a077-6c01-4ab1-8091-502a72b945fd">
+
+
+## iobroker configuration
+
+### Adapters to be installed and configured on iobroker
+You will need the following adapters installed on iobroker.
+
+<img width="400" alt="image" src="https://github.com/christophmoar/abrpTelemetrySmartInjector/assets/62471240/ec8e0132-1c22-424a-b949-21004498c641">
+
+Configure the smart-eq adapter instance with your hellosmart identifiers.
+
+<img width="400" alt="image" src="https://github.com/christophmoar/abrpTelemetrySmartInjector/assets/62471240/2ff3d870-0a54-423e-b675-89bbb4db2976">
+
+Configure the simple-api rest adapter as you like (protocol, ip, port).
+
+<img width="400" alt="image" src="https://github.com/christophmoar/abrpTelemetrySmartInjector/assets/62471240/3e229446-d021-4a0c-a787-1d9c88a2abaa">
+
+You should then be able to see the smart data in your objects/states.
+
+<img width="400" alt="image" src="https://github.com/christophmoar/abrpTelemetrySmartInjector/assets/62471240/8de10d41-b417-4db4-aabf-6e597a9adfd1">
+
+### Data acquired via REST from iobroker
 The following vehicle states will be fetched from iobroker
 
 * `'status.additionalVehicleStatus.electricVehicleStatus.chargeIAct', // corresponding for 'v.c.current'`
@@ -77,6 +102,13 @@ The following vehicle states will be fetched from iobroker
 * `'status.additionalVehicleStatus.climateStatus.exteriorTemp', // corresponding for 'v.e.temp'`
 * `'status.basicVehicleStatus.engineStatus', // corresponding for 'hx11.v.p.enginestatus'`
 
+The data is fetched via the `getBulk` rest endpoint, such as in:
+
+```http://host:port/getBulk/smart-eq.0.{VIN}.remote.conditioner,smart-eq.0.{VIN}.remote.lock```
+
+Which yields a json response with this style:
+
+<img width="400" alt="image" src="https://github.com/christophmoar/abrpTelemetrySmartInjector/assets/62471240/ad3ce1d3-02bd-4d47-832b-6fc3c1388e83">
 
 <!-- development notes -->
 ## Development notes
