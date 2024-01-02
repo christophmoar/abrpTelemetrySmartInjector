@@ -1,3 +1,7 @@
+# avoid development-only files
+package-lock.json
+.env
+
 # Logs
 logs
 *.log
