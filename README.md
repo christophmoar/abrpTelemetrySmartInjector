@@ -149,10 +149,7 @@ Project Link: [https://github.com/christophmoar/abrpTelemetrySmartInjector](http
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-This project relies on or is based on code from the following fine projects: 
-
-This complete plugin framework has been cloned from Loxberry-Plugin-solaredge by ingenarius, thanks for the template.
-The plugin itself and its usage would not be possible without these fine projects:
+This project relies on or is based on code from the following fine projects:
 
 * fetching live data from iobroker smart-eq adapter (https://github.com/TA2k/ioBroker.smart-eq)
 * then using either the iobroker rest-api adapter (https://github.com/ioBroker/ioBroker.rest-api)
